@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//the voting algorithm
 vector<int> majorityElement(vector<int>& a){
     int c1=0, c2=0, curr1=INT_MIN, curr2=INT_MAX;
     vector<int> ans;
