@@ -85,11 +85,30 @@ DoubleListNode* delPos(DoubleListNode* head, int x) {
 
 }
 
+DoubleListNode *reverse(DoubleListNode *head) {
+    DoubleListNode* temp = nullptr;
+    DoubleListNode* curr = head;
+    
+    while(curr != nullptr){
+        temp = curr->prev;
+        curr->prev = curr->next;
+        curr->next = temp;
+        curr = curr->prev;
+    }
+    
+    if(temp != nullptr) head = temp->prev;
+    return head;
+}
+
 
 int main(){
     DoubleListNode* head = new DoubleListNode(2);
-    head->next = new DoubleListNode(3);
-    head->next->next = new DoubleListNode(4);
+    DoubleListNode* node2 = new DoubleListNode(3);
+    DoubleListNode* node3 = new DoubleListNode(4);
+    head->next = node2;
+    node2->prev = head;
+    node2->next = node3;
+    node3->prev = node2;
     traversal(head);
     head = insertAtBeginning(head, 1);
     traversal(head);
@@ -98,5 +117,7 @@ int main(){
     head = insertAtValue(head, 1, 11);
     traversal(head);
     head = delPos(head, 2);
+    traversal(head);
+    head = reverse(head);
     traversal(head);
 }
