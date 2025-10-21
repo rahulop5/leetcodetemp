@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 struct ListNode {
@@ -14,32 +14,6 @@ void traversalOfLinkedList(ListNode* head){
         if(head->next != nullptr) cout << " -> ";
         head = head->next;
     }
-}
-
-int lengthOfLinkedList(ListNode* head){
-    int soln = 0;
-    while(head != nullptr){
-        soln++;
-        head = head->next;
-    }
-    return soln;
-}
-
-bool findElement(ListNode* head, int x){
-    while(head != nullptr){
-        if(head->val == x) return true;
-        head = head->next;
-    }
-    return false;
-}
-
-ListNode *insertAtEnd(ListNode *head, int x) {
-    ListNode* newNode = new ListNode(x);
-    if(head == nullptr) return newNode;
-    ListNode* temp = head;
-    while(temp->next != nullptr) temp = temp->next;
-    temp->next = newNode;
-    return head;
 }
 
 //Iterative approach
@@ -71,8 +45,6 @@ int main(){
     ListNode* head = new ListNode(1);
     head->next = new ListNode(2);
     head->next->next = new ListNode(3);
-    cout << lengthOfLinkedList(head) << endl;
-    cout << findElement(head, 4) << endl;
-    head = insertAtEnd(head, 4);
+    head = reverseList(head);
     traversalOfLinkedList(head);
 }
